@@ -71,7 +71,7 @@ class Downloader(QObject):
             if item.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')):
                 file_type = "image"
             else:
-                continue
+                file_type = "video"
 
             file_url_qml = QUrl.fromLocalFile(path).toString()
             file_data.append({
