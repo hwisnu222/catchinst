@@ -19,11 +19,10 @@ Window {
         target: DownloaderInstance
         function onDownloadProgress(message) {
             statusLabel.text = message
-            console.log("test1")
+            console.log(message)
         }
         function onMediaListReady(data) {
             media_files = data
-            console.log("Final media_files:", media_files.length)
         }
     }
 
@@ -89,6 +88,7 @@ Window {
 
                 Label {
                     id: statusLabel
+                    color: "#7a7a7a"
                 }
 
                 Text {

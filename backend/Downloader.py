@@ -29,6 +29,7 @@ class Downloader(QObject):
 
     @Slot(str)
     def downloader(self, url):
+        self.downloadProgress.emit(f"Downloading: {url}")
 
         os.makedirs(self.download_dir, exist_ok=True)
         post_short_code = self.parse_url(url)
@@ -38,10 +39,6 @@ class Downloader(QObject):
             return
 
         try:
-
-            print(f"short code: {post_short_code}")
-            self.downloadProgress.emit(f"Downloading: {url}")
-
             post = instaloader.Post.from_shortcode(self.L.context, post_short_code)
             self.L.download_post(post, target=post_short_code)
             self.downloadProgress.emit(f"Success download {url}")
