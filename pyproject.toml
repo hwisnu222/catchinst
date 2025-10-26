@@ -2,4 +2,4 @@
 name = "PySide QtQuick Project"
 
 [tool.pyside6-project]
-files = ["backend/Downloader.py", "main.py", "main.qml"]
+files = ["README.md", "backend/Downloader.py", "main.py", "main.qml","screenshot/*.png"]
