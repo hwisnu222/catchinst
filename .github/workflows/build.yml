@@ -45,6 +45,7 @@ jobs:
           fi
 
           pyinstaller --onefile --windowed \
+            --add-data "main.qml${separator}." \
             main.py
 
       - name: Upload Artifact
