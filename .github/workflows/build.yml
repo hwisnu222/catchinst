@@ -44,15 +44,13 @@ jobs:
             separator=":"
           fi
 
-          echo "Menggunakan separator PyInstaller: $separator"
-
           pyinstaller --onefile --windowed \
             main.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PyQt-App-${{ matrix.os }}
+          name: CatchInst-${{ matrix.os }}
           path: dist/*
           retention-days: 7
 
@@ -63,7 +61,7 @@ jobs:
     if: success() && startsWith(github.ref, 'refs/tags/')
 
     steps:
-      - name: Download semua build artifacts
+      - name: Download all build artifacts
         uses: actions/download-artifact@v4
         with:
           path: artifacts
