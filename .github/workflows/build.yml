@@ -36,6 +36,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build Executable with PyInstaller
+        shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
             separator=";"
