@@ -73,12 +73,12 @@ jobs:
               OS_NAME=$(basename "$DIR" | sed 's/CatchInst-App-//')
               
               if [ -f "$DIR/main.exe" ]; then
-                mv "$DIR/main.exe" "$DIR/CatchInst-App-$OS_NAME.exe"
-                echo "Renamed $DIR/main.exe to $DIR/CatchInst-App-$OS_NAME.exe"
+                mv "$DIR/main.exe" "$DIR/$OS_NAME.exe"
+                echo "Renamed $DIR/main.exe to $DIR/$OS_NAME.exe"
               
               elif [ -f "$DIR/main" ]; then
-                mv "$DIR/main" "$DIR/CatchInst-App-$OS_NAME"
-                echo "Renamed $DIR/main to $DIR/CatchInst-App-$OS_NAME"
+                mv "$DIR/main" "$DIR/$OS_NAME"
+                echo "Renamed $DIR/main to $DIR/$OS_NAME"
               fi
             fi
           done
