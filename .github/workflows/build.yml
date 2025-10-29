@@ -66,22 +66,22 @@ jobs:
         with:
           path: artifacts
       - name: Rename Assets for Unique Uploads
-              shell: bash
-              run: |
-                for DIR in artifacts/*; do
-                  if [ -d "$DIR" ]; then
-                    OS_NAME=$(basename "$DIR" | sed 's/CatchInst-App-//')
-                    
-                    if [ -f "$DIR/main.exe" ]; then
-                      mv "$DIR/main.exe" "$DIR/CatchInst-App-$OS_NAME.exe"
-                      echo "Renamed $DIR/main.exe to $DIR/CatchInst-App-$OS_NAME.exe"
-                    
-                    elif [ -f "$DIR/main" ]; then
-                      mv "$DIR/main" "$DIR/CatchInst-App-$OS_NAME"
-                      echo "Renamed $DIR/main to $DIR/CatchInst-App-$OS_NAME"
-                    fi
-                  fi
-                done
+        shell: bash
+        run: |
+          for DIR in artifacts/*; do
+            if [ -d "$DIR" ]; then
+              OS_NAME=$(basename "$DIR" | sed 's/CatchInst-App-//')
+              
+              if [ -f "$DIR/main.exe" ]; then
+                mv "$DIR/main.exe" "$DIR/CatchInst-App-$OS_NAME.exe"
+                echo "Renamed $DIR/main.exe to $DIR/CatchInst-App-$OS_NAME.exe"
+              
+              elif [ -f "$DIR/main" ]; then
+                mv "$DIR/main" "$DIR/CatchInst-App-$OS_NAME"
+                echo "Renamed $DIR/main to $DIR/CatchInst-App-$OS_NAME"
+              fi
+            fi
+          done
 
       - name: Create Release and Upload Assets
         uses: softprops/action-gh-release@v1
